@@ -3,8 +3,7 @@ public class OccurenceList implements Comparator<Integer>
 {
     /*
         Daniel Taufiq
-        4/14/2019
-        Dr. Jarvis
+        1/5/2020
 
         Class Description:
             will be used by other classes to add the occurences of

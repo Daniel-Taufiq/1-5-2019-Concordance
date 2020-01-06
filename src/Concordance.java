@@ -3,8 +3,7 @@ public class Concordance
 {
     /*
         Daniel Taufiq
-        5/9/2019
-        Dr. Jarvis
+        1/5/2020
         Instance Variables:
             private Book book
                 holds a book object containing words and tokens
