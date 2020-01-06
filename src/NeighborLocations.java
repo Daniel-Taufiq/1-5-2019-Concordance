@@ -11,7 +11,7 @@ public class NeighborLocations
 
         Instance Variable
             private static NeighborLocations instance = null;
-                waits to initializr instance variable until first being
+                waits to initialize instance variable until first being
                 called
             private int distance;
                 stores the distance between the two search terms.

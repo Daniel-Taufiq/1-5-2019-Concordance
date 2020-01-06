@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a02eab03-19ef-4144-8808-edb05cd65c5e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Concordance.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HTMLTemplate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TreasureIsland.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Concordance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Concordance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NavigableOccurenceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigableOccurenceList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OccurenceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OccurenceList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TokenList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TokenList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NeighborLocations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NeighborLocations.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -32,6 +33,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
   <component name="RecentsManager">
