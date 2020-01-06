@@ -1,5 +1,5 @@
 import java.util.*;
-public class OccurenceList
+public class OccurenceList implements Comparator<Integer>
 {
 	private ArrayList<Integer> list;
 
@@ -41,10 +41,29 @@ public class OccurenceList
 		result = new int[getList().size()];
 		for(int i = 0; i < getList().size(); i++)
 		{
-			result[i] = list.get(i);
+			result[i] = get(i);
 		}
 		return result;
 	}
 
 	public int size() { return this.list.size(); }
+
+	@Override
+	public int compare(Integer a, Integer b)
+	{
+		int result;
+		if(a > b) { result = 1; }
+		if(a == b) { result = 0; }
+		if(a < b) { result = -1; }
+	}
+
+	public void sortList()
+	{
+		this.sortList(new OccurenceList());
+	}
+
+	public void sortList(Comparator<Integer> comparator)
+	{
+		Arrays.sort(comparator());
+	}
 }

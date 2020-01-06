@@ -128,7 +128,7 @@ public class NavigableOccurenceList
 
         //ArrayList<Integer> result;
         //result = new ArrayList<Integer>();
-        change = new ArrayList<Integer>
+        change = new ArrayList<Integer>();
         for(int i = 0; i < size(); i++)
         {
             result[i] = value[i];
@@ -137,9 +137,9 @@ public class NavigableOccurenceList
                 i = i + 1;
             }
         }
-        change = remove(getCurrentPosition());
-        result =
-                setList(new OccurenceList(result));
+        //change = remove(getCurrentPosition());
+        //result =
+        //setList(new OccurenceList(result));
     }
 
     public boolean hasNext()
