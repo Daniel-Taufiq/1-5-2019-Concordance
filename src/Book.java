@@ -1,9 +1,48 @@
-import java.util.*;
 import java.io.*;
 public class Book
 {
-    private TokenList allTokens;
-    private Word[] allWords;
+    /*
+            Daniel Taufiq
+            5/6/2019
+            Dr. Jarvis
+
+            Class Description:
+                Holds all the context from a book or any document
+
+            Instance Variables:
+                TokenList allTokens
+                    holds all tokens from the text file
+                Word[] allWords
+                    holds an array of Word ojbects, each containing
+                    only words from the file
+
+             Constructor:
+                Book(File file)
+                    calls the overloaded constructor
+                public Book(File file, String excerptStartTag, String excerptStopTag)
+                    will initialize the instance variables using ExcerptFilter
+                    and WordFilter classes
+
+              Methods
+                 private TokenList getAllTokens()
+                    returns the instance variable
+                 public int getNumberOfTokens()
+                    returns the size of the instance variable
+                 public String[] getTokens()
+                    returns a shallow clone version of instance variable
+                 public String getToken(int i)
+                    returns a String of allTokens at the index
+                 private Word[] getAllWords()
+                    returns thr instance variable
+                 public int getNumberOfWords()
+                    returns a shallow clone of the instance variable
+                 public Word getWord(int i )
+                    returns thee Word object at the index provided
+
+         */
+
+    TokenList   allTokens;
+    Word[]      allWords;
 
     public Book(File file) throws IOException
     {
@@ -12,45 +51,40 @@ public class Book
 
     public Book(File file, String excerptStartTag, String excerptStopTag) throws IOException
     {
-        TokenFilter         allTokens;
-        ArrayList<String>   readMethodArrayList;
-        String[]            filterArray;
+        Word[]              allWords;
+        TokenFilter         excerptFilter;
         TokenList           list;
-        FileReaderWriter    readFile;
-        Word[]              words;
+        TokenList           list2;
+        String[]            strArray;
 
-        if(file == null)
-        {
-            throw new IllegalArgumentException(getClass().getName() +
-                    "Book constructor: file cannot be null " + file);
-        }
 
+        // update allTokens
+        excerptFilter = ExcerptFilter.factory(excerptStartTag, excerptStopTag);
         list = new TokenList();
+        list.updateUsing(file, excerptFilter);
 
-        readFile = FileReaderWriter.getInstance();
-        readMethodArrayList = readFile.read(file);                      // read & store in ArrayList
-
-        filterArray = readMethodArrayList.toArray(new String[0]);       // instantiate size of array
-
-        list.updateUsing(filterArray, new WordFilter());                // get all the tokens from array
-        filterArray = list.toArray();
-
-        // update words using already created array and access Word static method
-        words = Word.toWordArray(filterArray);
-
-        // update list using default excerpt factory
-        allTokens = ExcerptFilter.factory(null, null);  // uses default filter to read all tokens
-        list.updateUsing(allTokens);
+        // update allWords
+        list2 = new TokenList();
+        list2 = list.clone();
+        strArray = list2.toArray();
+        list2.updateUsing(strArray, new WordFilter());
+        strArray = list2.toArray();
+        allWords = Word.toWordArray(strArray);
 
         this.allTokens = list;
-        this.allWords = words;
+        this.allWords = allWords;
     }
 
     private TokenList getAllTokens() { return this.allTokens; }
 
     public int getNumberOfTokens() { return this.allTokens.size(); }
 
-    public String[] getTokens() { return this.allTokens.toArray(); }
+    public String[] getTokens()
+    {
+        String[] tokens;
+        tokens = getAllTokens().toArray().clone();
+        return tokens;
+    }
 
     public String getToken(int i) { return allTokens.get(i); }
 
@@ -58,9 +92,12 @@ public class Book
 
     public int getNumberOfWords() { return this.allWords.length; }
 
-    public Word[] getWords() { return this.allWords; }
+    public Word[] getWords()
+    {
+        Word[] word;
+        word = getAllWords().clone();
+        return word;
+    }
 
     public Word getWord(int i ) { return allWords[i]; }
-
-
 }

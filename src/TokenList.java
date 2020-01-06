@@ -6,7 +6,8 @@ public class TokenList implements TokenFilter, Cloneable
 {
     /*
      * Daniel Taufiq
-     * 1/5/2020
+     * 4/5/2019
+     * Dr. Jarvis
      *
      * Class Description:
      *      Reads Strings or files and filters anything that is implemented.
@@ -72,6 +73,9 @@ public class TokenList implements TokenFilter, Cloneable
      *      public TokenList xor(TokenList other)
      *          returns new TokenList containing elements that are only unique to both lists.
      *
+     * Modification History:
+     *      5-12-2019 : added trailing whitespace to the updateUsing file method
+     *
      */
     private ArrayList<String> list;
 
@@ -86,7 +90,7 @@ public class TokenList implements TokenFilter, Cloneable
     {
         boolean result;
         result = true;
-        if (token == null)
+        if (token == null || token.trim().length() < 1)
         {
             result = false;
         }
@@ -153,11 +157,6 @@ public class TokenList implements TokenFilter, Cloneable
     public void updateUsing(String source, TokenFilter filter)
     {
         if (source == null)
-        {
-            throw new IllegalArgumentException(getClass().getName() +
-                    "String cannot be null" + source);
-        }
-        if (source.length() < 1)
         {
             throw new IllegalArgumentException(getClass().getName() +
                     "String cannot be null" + source);
@@ -281,27 +280,33 @@ public class TokenList implements TokenFilter, Cloneable
 
         input = new BufferedReader(new FileReader(source));
 
-        text = input.readLine();    //word letters numbers symbols
+        text =input.readLine() + " ";    //word letters numbers symbols
 
-        while (text != null)
+        while(text != null)
         {
-            breakIterator.setText(text);
-            start = breakIterator.first();
-            end = breakIterator.next();
-
-            while (end != BreakIterator.DONE)
-            {
-                result = filter.accept(text.substring(start, end));
-
-                if (result)
-                {
-                    list.add(text.substring(start, end));
-                }
-                start = end;
-                end = breakIterator.next();
-            }
+            updateUsing(text + " ", filter);
             text = input.readLine();
         }
+
+//        while (text != null)
+//        {
+//            breakIterator.setText(text);
+//            start = breakIterator.first();
+//            end = breakIterator.next();
+//
+//            while (end != BreakIterator.DONE)
+//            {
+//                result = filter.accept(text.substring(start, end));
+//
+//                if (result)
+//                {
+//                    list.add(text.substring(start, end));
+//                }
+//                start = end;
+//                end = breakIterator.next();
+//            }
+//            text = input.readLine();
+//        }
         input.close();
     }
 
@@ -312,11 +317,7 @@ public class TokenList implements TokenFilter, Cloneable
             throw new IllegalArgumentException(getClass().getName() +
                     "String cannot be null" + source);
         }
-        if (source.length() < 1)
-        {
-            throw new IllegalArgumentException(getClass().getName() +
-                    "String cannot be less than 1" + source);
-        }
+
         this.updateUsing(source, filter, BreakIterator.getWordInstance());
     }
 
@@ -350,6 +351,16 @@ public class TokenList implements TokenFilter, Cloneable
         }
         setList(list2);
     }
+
+    public static void main(String[] args)
+    {
+        TokenList list;
+        ArrayList<String> a;
+        list = new TokenList();
+        a = new ArrayList<String>();
+
+    }
+
 
     public boolean contains(String x)
     {
@@ -387,7 +398,7 @@ public class TokenList implements TokenFilter, Cloneable
                     "sort method: comparator String is null. " + comparator);
         }
         // invoke the two parameter Collections.sort method
-        Collections.sort(list, comparator);
+        Collections.sort(list, new CaseInsensitiveAlphabetiCompare());
     }
 
     public String get(int elementNumber)
@@ -431,16 +442,16 @@ public class TokenList implements TokenFilter, Cloneable
 
     public TokenList and(TokenList other)
     {
-        ArrayList<String>   list2;
-        TokenList           list3;
-        ArrayList<String>   list4;
-        String              x;
-
         if (other == null)
         {
             throw new IllegalArgumentException(getClass().getName() +
                     "token cannot be null" + other);
         }
+
+        ArrayList<String> list2;
+        TokenList list3;
+        ArrayList<String> list4;
+        String x;
 
         list2 = new ArrayList<String>();
         list3 = new TokenList();
@@ -460,16 +471,14 @@ public class TokenList implements TokenFilter, Cloneable
 
     public TokenList xor(TokenList other)
     {
-        ArrayList<String>   list2;
-        TokenList           list3;
-        ArrayList<String>   list4;
-
         if (other == null)
         {
             throw new IllegalArgumentException(getClass().getName() +
                     "token cannot be null" + other);
         }
-
+        ArrayList<String> list2;
+        TokenList list3;
+        ArrayList<String> list4;
 
         list2 = new ArrayList<String>();
         list3 = new TokenList();
@@ -492,17 +501,15 @@ public class TokenList implements TokenFilter, Cloneable
 
     public TokenList minus(TokenList other)
     {
-        ArrayList<String>   list2;
-        TokenList           list3;
-        ArrayList<String>   list4;
-
         if (other == null)
         {
             throw new IllegalArgumentException(getClass().getName() +
                     "token cannot be null" + other);
         }
 
-
+        ArrayList<String> list2;
+        TokenList list3;
+        ArrayList<String> list4;
 
         list2 = new ArrayList<String>();
         list3 = new TokenList();
@@ -521,16 +528,14 @@ public class TokenList implements TokenFilter, Cloneable
 
     public TokenList or(TokenList other)
     {
-        ArrayList<String>   list2;
-        TokenList           list3;
-        ArrayList<String>   list4;
-
         if (other == null)
         {
             throw new IllegalArgumentException(getClass().getName() +
                     "token cannot be null" + other);
         }
-
+        ArrayList<String> list2;
+        TokenList list3;
+        ArrayList<String> list4;
 
         list2 = new ArrayList<String>();
         list3 = new TokenList();

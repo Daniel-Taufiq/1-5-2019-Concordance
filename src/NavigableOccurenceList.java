@@ -1,30 +1,91 @@
 import java.util.*;
 public class NavigableOccurenceList
 {
-    private int currentPosition;
-    private OccurenceList list;
+    /*
+        Daniel Taufiq
+        5/8/2019
+        Dr. Jarvis
+
+        Class Description:
+            uses a position in the index to navigate
+            through the array of a location pair
+
+        Instance Variables:
+            private int currentPosition
+                holds the current position in an index
+            private OccurenceList list
+                contains the OccurenceList object that
+                holds an array of int values.
+
+        Constructor:
+            public NavigableOccurenceList(OccurenceList occurenceList)
+                instantiate the instance variables
+
+        Methods:
+            private OccurenceList getList()
+                returns the list instance variable
+            private void setList(OccurenceList occurenceList)
+                sets the OccurenceList object to a new list
+            private int getCurrentPosition()
+                returns the instance variable's current position
+                in the index
+            private void setCurrentPosition(int position)
+                sets the instance variable's position
+                to a specified index.
+            private void incrementCurrentPosition()
+                increments to the next index
+            private void incrementCurrentPosition()
+                decrements to the previous index
+            private int get()
+                returns the element at the current index
+            public void add(int occurence)
+                add element to the list
+            public int first()
+                returns the first element in the list
+            public int last()
+                returns the last element in the list
+            public int previous()
+                returns the previous element
+            public int next()
+                returns the next element
+            public void remove()
+                removes element at currentPosition
+            public boolean hasNext()
+                checks if there is an element in front
+                of the currentPosition
+            public boolean hasPrevious()
+                checks if there is an element behind
+                the currentPosition
+            public void set(int value)
+                sets a value at a specified index
+            public int size()
+                returns the size of the list
+            public void reset()
+                resets currentPosition to -1
+
+     */
+    private int             currentPosition;
+    private OccurenceList   list;
 
     public NavigableOccurenceList(OccurenceList occurenceList)
     {
-        if(list == null)
+        if(occurenceList == null)
         {
             throw new IllegalArgumentException(getClass().getName() +
-                    "constructor: list cannot be null " + list);
+                    " constructor: list cannot be null " + list);
         }
-
         this.list = occurenceList;
-        this.currentPosition = 0;
+        reset();
     }
 
     private OccurenceList getList() { return this.list; }
     private void setList(OccurenceList occurenceList)
     {
-        if(list == null)
+        if(this.list == null)
         {
             throw new IllegalArgumentException(getClass().getName() +
-                    "setList method: list cannot be null " + list);
+                    " setList method: list cannot be null " + this.list);
         }
-
         this.list = occurenceList;
     }
 
@@ -35,6 +96,12 @@ public class NavigableOccurenceList
 
     private void setCurrentPosition(int position)
     {
+        if(position < 0 || position > getList().size() - 1)
+        {
+            throw new RuntimeException(getClass().getName() +
+                    " setCurrentPosition method: cannot be less than 0 or " +
+                    "greater than the array list size " + position);
+        }
         this.currentPosition = position;
     }
 
@@ -53,93 +120,75 @@ public class NavigableOccurenceList
         return getList().get(getCurrentPosition());
     }
 
-    public void add(int occurence)
-    {
-        this.list.add(occurence);
-    }
+    public void add(int occurence) { this.list.add(occurence); }
 
     public int first()
     {
-        //if(getList().size() < 1)
-        //{
-        //	throw new NoSuchElementException(getClass().getName());
-        //}
+        if(getList().size() < 0)
+        {
+            throw new NoSuchElementException(getClass().getName() +
+                    " first method: element is out of bounds " + get());
+        }
         this.currentPosition = 0;
         return get();
     }
 
     public int last()
     {
-        //if(getList().size()1)
-        //{
-        //	throw new NoSuchElementException(getClass().getName());
-        //}
-        this.currentPosition = getList().size();
+        if(getList().size() > getList().size() + 1)
+        {
+            throw new NoSuchElementException(getClass().getName() +
+                    " last method: element is out of bounds " + get());
+        }
+        this.currentPosition = getList().size() - 1;
         return get();
     }
 
     public int previous()
     {
-        //if(!hasPrevious)
-        //{
-        //	throw new NoSuchElementException
-        //}
+        if(!hasPrevious())
+        {
+            throw new NoSuchElementException(getClass().getName() +
+                    " previous method: element is out of bounds " + get());
+        }
         decrementCurrentPosition();
         return get();
     }
 
     public int next()
     {
-        //if(!hasNext())
-        //{
-        //	throw new NoSuchElementException
-        //}
+        if(!hasNext())
+        {
+            throw new NoSuchElementException(getClass().getName() +
+                    " next method: element is out of bounds " + get());
+        }
         incrementCurrentPosition();
         return get();
-    }
-    public void main()
-    {
-        NavigableOccurenceList list;
-        list = new NavigableOccurenceList(new OccurenceList(new int[] {1, 2, 3, 4}));
-        list.add(1);
-        print(list.getList().getAll());
-    }
-
-    public void print(int[] intArr)
-    {
-        for(int i = 0; i < intArr.length; i++)
-        {
-            System.out.println(intArr[i]);
-        }
     }
 
     public void remove()
     {
-        ArrayList<Integer> change;
-        int[] result;
-        int[] value;
-        value = getList().getAll();
-        result = new int[value.length - 1];
+        int     j;
+        int[]   hold;
+        int[]   result;
 
-        //if(getCurrentPosition() < 0 || getCurrentPosition() > getList.size())
-        //{
-        //	throw new NoSuchElementException
-        //}
+        j = 0;
+        hold = getList().getAll();
+        result = new int[hold.length - 1];
 
-        //ArrayList<Integer> result;
-        //result = new ArrayList<Integer>();
-        change = new ArrayList<Integer>();
-        for(int i = 0; i < size(); i++)
+        if(getCurrentPosition() < 0 || getCurrentPosition() > size() - 1)
         {
-            result[i] = value[i];
-            if(i == getCurrentPosition())
-            {
-                i = i + 1;
-            }
+            throw new NoSuchElementException(getClass().getName() +
+                    " remove method: index is out of bounds " + getCurrentPosition());
         }
-        //change = remove(getCurrentPosition());
-        //result =
-        //setList(new OccurenceList(result));
+
+        for(int i = 0; i < hold.length; i++)
+        {
+            if(i == getCurrentPosition()) { j--; }
+            else { result[j] = hold[i]; }
+            j++;
+        }
+        setList(new OccurenceList(result));
     }
 
     public boolean hasNext()
@@ -149,28 +198,38 @@ public class NavigableOccurenceList
 
     public boolean hasPrevious()
     {
-        // return true if currenPosition - 1 is greater than or equal to 0
         return getCurrentPosition() - 1 >= 0;
     }
 
     public void set(int value)
     {
-        if(value < getList().size())
-        {
-            throw new IllegalArgumentException(getClass().getName() +
-                    "set method: value cannot be less than list size " + value);
-        }
+        int[] hold;
         int[] result;
-        result = getList().getAll();
-        setList(getCurrentPosition() = value);
-        setList(new OccurenceList(result));
 
+        if(getCurrentPosition() > size() - 1 || getCurrentPosition() < 0)
+        {
+            throw new NoSuchElementException(getClass().getName() +
+                    " set method: element is out of bounds " + getCurrentPosition());
+        }
+
+        hold = getList().getAll();
+        result = new int[size()];
+
+        for(int i = 0; i < size(); i++)
+        {
+            if(i == getCurrentPosition()) { result[i] = value; }
+            else { result[i] = hold[i]; }
+        }
+        setList(new OccurenceList(result));
     }
 
     public int size()
     {
-        return getList.size();
+        return getList().size();
     }
 
-
+    public void reset()
+    {
+        this.currentPosition = -1;  // if next() called, will return first element the list
+    }
 }
