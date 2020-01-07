@@ -3,7 +3,8 @@ public class NeighborLocations
 {
     /*
         Daniel Taufiq
-        1/6/2020
+        4/14/2019
+        Dr. Jarvis
 
         Class Description:
             A singleton class that allows other objects to use
@@ -11,7 +12,7 @@ public class NeighborLocations
 
         Instance Variable
             private static NeighborLocations instance = null;
-                waits to initialize instance variable until first being
+                waits to initializr instance variable until first being
                 called
             private int distance;
                 stores the distance between the two search terms.

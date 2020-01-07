@@ -1,11 +1,22 @@
 import java.io.*;
 import java.util.*;
-
 public class FileReaderWriter
 {
+    /*
+		Daniel Taufiq
+		5/9/2019
+		Dr. Jarvis
+
+		Class Description:
+			reads and writes to files
+
+		Instance Variables:
+			private static final FileReaderWriter instance
+
+	*/
+
     private static final FileReaderWriter instance = new FileReaderWriter();
 
-    // forces user to obtain reference through the static method
     private FileReaderWriter() {};
 
     public static FileReaderWriter getInstance() { return instance; }
@@ -14,39 +25,65 @@ public class FileReaderWriter
 
     public ArrayList<String> read(File source) throws IOException
     {
-        BufferedReader input = null;
-        String record;
-        ArrayList list;
+        // declare local variables
+        BufferedReader 	input = null;
+        String 			record;
+        ArrayList		list;
 
-        list = new ArrayList();
+        list = new ArrayList<String>();							// initialize ArrayList
 
         if(source == null)
         {
             throw new IllegalArgumentException(getClass().getName() +
                     "read method: File source cannot be null " + source);
         }
-
-        input = new BufferedReader(new FileReader(source));
-        record = input.readLine();
-
-        while(record != null)
+        try
         {
-            list.add(record);
-            record = input.readLine();
-        }
+            input = new BufferedReader(new FileReader(source));	// open file
+            record = input.readLine();							// read the first line of text
 
-        input.close();
+            while(record != null)								// keep reading until reaches end of file
+            {
+                list.add(record);								// add line of text to ArrayList
+                record = input.readLine();						// read the next line
+            }
+
+        }
+        catch(FileNotFoundException fnfe)
+        {
+            System.out.println("cannot locate file " + fnfe.getMessage());
+        }
+        finally
+        {
+            try
+            {
+                input.close();
+            }
+            catch(IOException ioe)
+            {
+                System.out.println("Could not close input " + ioe.getMessage());
+            }
+        }
         return list;
     }
+
     public void write(File file, String source) throws IOException	// write this "source" onto existing file
     {
+        String[]	        array;
         ArrayList<String>	list;
+        PrintWriter         writer;
 
-        list = new ArrayList<String>();
+        writer =  new PrintWriter(file);
+
+        list = read(file);	// call read method & return ArrayList
 
         list.add(source);   // add source to ArrayList
 
-        write(file, list);
+        array = list.toArray(new String[0]);
+
+        write(writer, array);
+
+        writer.close();
     }
 
 
@@ -56,7 +93,9 @@ public class FileReaderWriter
         ArrayList<String>   list;
         PrintWriter         writer;
 
-        list = new ArrayList<String>();
+        writer = new PrintWriter(file);
+
+        list = read(file);
 
         for(int i = 0; i < source.size(); i++)
         {
@@ -65,7 +104,9 @@ public class FileReaderWriter
 
         array = list.toArray(new String[0]);
 
-        write(file, array);
+        write(writer, array);
+
+        writer.close();
     }
 
     public void write(File file, String[] source) throws IOException

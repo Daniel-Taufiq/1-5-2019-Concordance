@@ -2,7 +2,8 @@ public class NeighborFinder implements Runnable
 {
     /*
         Daniel Taufiq
-        1/6/2020
+        5/14/2019
+        Dr. Jarvis
 
         Class Description:
             Finds the index location where the two words are found

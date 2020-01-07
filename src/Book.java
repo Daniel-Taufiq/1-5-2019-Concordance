@@ -3,7 +3,8 @@ public class Book
 {
     /*
             Daniel Taufiq
-            1/5/2020
+            5/6/2019
+            Dr. Jarvis
 
             Class Description:
                 Holds all the context from a book or any document

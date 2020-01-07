@@ -3,7 +3,8 @@ public class OccurenceList implements Comparator<Integer>
 {
     /*
         Daniel Taufiq
-        1/5/2020
+        4/14/2019
+        Dr. Jarvis
 
         Class Description:
             will be used by other classes to add the occurences of
@@ -41,66 +42,66 @@ public class OccurenceList implements Comparator<Integer>
                 list and store in a new OccurenceList object
      */
 
-	private ArrayList<Integer> list;
+    private ArrayList<Integer> list;
 
-	public OccurenceList() { this.list = new ArrayList<Integer>(); }
+    public OccurenceList() { this.list = new ArrayList<Integer>(); }
 
-	public OccurenceList(int[] occurences)
-	{
-		this();
-		for(int i = 0; i < occurences.length; i++)
-		{
-			this.list.add(occurences[i]);
-		}
-	}
+    public OccurenceList(int[] occurences)
+    {
+        this();
+        for(int i = 0; i < occurences.length; i++)
+        {
+            this.list.add(occurences[i]);
+        }
+    }
 
-	private ArrayList<Integer> getList() { return this.list; }
+    private ArrayList<Integer> getList() { return this.list; }
 
-	public void add(int occurence) { this.list.add(occurence); }
+    public void add(int occurence) { this.list.add(occurence); }
 
-	public int get(int i)
-	{
-		if(i < 0 || i >= size())
-		{
-			throw new RuntimeException(getClass().getName() + " invalid index " + i);
-		}
-		return getList().get(i);
-	}
+    public int get(int i)
+    {
+        if(i < 0 || i >= size())
+        {
+            throw new RuntimeException(getClass().getName() + " invalid index " + i);
+        }
+        return getList().get(i);
+    }
 
-	public int[] getAll()
-	{
-		int[] result;
+    public int[] getAll()
+    {
+        int[] result;
 
-		result = new int[getList().size()];
+        result = new int[getList().size()];
 
-		for(int i = 0; i < getList().size(); i++) { result[i] = list.get(i); }
+        for(int i = 0; i < getList().size(); i++) { result[i] = list.get(i); }
 
-		return result;
-	}
+        return result;
+    }
 
-	public int size() { return this.list.size(); }
+    public int size() { return this.list.size(); }
 
-	public int compare(Integer a, Integer b)
-	{
-		int result;
-		result = 0;
+    public int compare(Integer a, Integer b)
+    {
+        int result;
+        result = 0;
 
-		if(a > b) { result = a - b; }
-		else if(a == b) { result = 0; }
-		else if(a < b) { result = -1; }
+        if(a > b) { result = a - b; }
+        else if(a == b) { result = 0; }
+        else if(a < b) { result = -1; }
 
-		return result;
-	}
+        return result;
+    }
 
-	public void sortList() { this.sortList(new OccurenceList()); }
+    public void sortList() { this.sortList(new OccurenceList()); }
 
-	public void sortList(Comparator<Integer> comparator)
-	{
-		if(comparator == null)
-		{
-			throw new IllegalArgumentException(getClass().getName() +
-					"sortList method: comparator cannot be null " + comparator);
-		}
-		Collections.sort(this.list, new OccurenceList());
-	}
+    public void sortList(Comparator<Integer> comparator)
+    {
+        if(comparator == null)
+        {
+            throw new IllegalArgumentException(getClass().getName() +
+                    "sortList method: comparator cannot be null " + comparator);
+        }
+        Collections.sort(this.list, new OccurenceList());
+    }
 }

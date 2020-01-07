@@ -2,7 +2,7 @@ public class WordFilter implements TokenFilter
 {
     /*
         Daniel Taufiq
-        1/5/2020
+        4/8/2019
 
         Class Description:
             filters out words of a String.
@@ -14,9 +14,12 @@ public class WordFilter implements TokenFilter
 
     public boolean accept(String token)
     {
+        String 	alphabet;
+        int		loc;
         boolean	result;
 
         result = true;
+
 
         if(token == null) { result = false; }
 

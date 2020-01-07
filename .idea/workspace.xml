@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a02eab03-19ef-4144-8808-edb05cd65c5e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Concordance.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HTMLTemplate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TreasureIsland.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NeighborLocations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NeighborLocations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HTMLTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/HTMLTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Concordance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ExcerptFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileReaderWriter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HTML.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LocationPair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NavigableOccurenceList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NeighborFinder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NeighborLocations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OccurenceList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TokenFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TokenList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Word.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WordFilter.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +46,30 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Taufiq\IdeaProjects\1-5-2019 Concordance\src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Taufiq\IdeaProjects\1-5-2019 Concordance" />
+      <recent name="C:\Users\Taufiq\IdeaProjects\1-5-2019 Concordance\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Driver" />
+      <module name="1-5-2019 Concordance" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Driver" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -67,9 +97,53 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1578333749811">
+    <state x="756" y="406" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1578408131203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578333749811" />
+    <state x="756" y="406" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1578408131203" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578408328969">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578408328969" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1578408370800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578408370800" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1578408370800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578408370800" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1578408370800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578408370800" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1578408370800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578408370800" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1578350062423">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578350062423" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1578350062422">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578350062422" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1578350062422">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578350062422" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1578350062422">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578350062422" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1578407850980">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578407850980" />
+    <state x="342" y="141" key="new project wizard" timestamp="1578407893874">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="141" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1578407893874" />
   </component>
 </project>

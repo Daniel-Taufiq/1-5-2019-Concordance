@@ -3,7 +3,9 @@ public class Concordance
 {
     /*
         Daniel Taufiq
-        1/5/2020
+        5/9/2019
+        Dr. Jarvis
+
         Instance Variables:
             private Book book
                 holds a book object containing words and tokens
@@ -14,9 +16,11 @@ public class Concordance
             private HashMap<Word, OccurenceList> occurenceMap
                 maps the occurences of each Word object in the
                 Word[] and is incaseSensitive
+
         Constructor:
             public Concordance(Book book)
                 instantiates the instance variables
+
         Methods
             private void populateOccurenceMap()
                 maps the occurences of each Word object in the

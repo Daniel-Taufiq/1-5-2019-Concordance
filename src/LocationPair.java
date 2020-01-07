@@ -2,7 +2,8 @@ public class LocationPair
 {
     /*
 		Daniel Taufiq
-		1/6/2020
+		5/12/2019
+		Dr. Jarvis
 
 		Class Description:
 			Locates the two indexes of left and right where the distance is valid
