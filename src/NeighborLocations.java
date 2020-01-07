@@ -3,8 +3,7 @@ public class NeighborLocations
 {
     /*
         Daniel Taufiq
-        4/14/2019
-        Dr. Jarvis
+        1/7/2019
 
         Class Description:
             A singleton class that allows other objects to use

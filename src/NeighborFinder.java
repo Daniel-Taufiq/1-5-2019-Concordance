@@ -2,9 +2,7 @@ public class NeighborFinder implements Runnable
 {
     /*
         Daniel Taufiq
-        5/14/2019
-        Dr. Jarvis
-
+        1/7/2019
         Class Description:
             Finds the index location where the two words are found
             and the distance is valid and creates a LocationPair

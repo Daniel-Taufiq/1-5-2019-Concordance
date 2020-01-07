@@ -2,8 +2,7 @@ public class Word implements Comparable<Word>
 {
     /*
         Daniel Taufiq
-        5/6/2019
-        Dr. Jarvis
+        1/7/2019
 
         Class Description:
             holds the String of a word that is being used by the

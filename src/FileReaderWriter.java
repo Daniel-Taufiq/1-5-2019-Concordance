@@ -4,8 +4,7 @@ public class FileReaderWriter
 {
     /*
 		Daniel Taufiq
-		5/9/2019
-		Dr. Jarvis
+		1/7/2019
 
 		Class Description:
 			reads and writes to files

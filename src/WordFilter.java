@@ -2,7 +2,7 @@ public class WordFilter implements TokenFilter
 {
     /*
         Daniel Taufiq
-        4/8/2019
+        1/7/2019
 
         Class Description:
             filters out words of a String.
