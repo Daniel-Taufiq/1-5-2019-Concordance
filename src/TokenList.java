@@ -6,8 +6,7 @@ public class TokenList implements TokenFilter, Cloneable
 {
     /*
      * Daniel Taufiq
-     * 4/5/2019
-     * Dr. Jarvis
+     * 1/7/2019
      *
      * Class Description:
      *      Reads Strings or files and filters anything that is implemented.

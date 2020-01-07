@@ -2,8 +2,7 @@ public class ExcerptFilter implements TokenFilter
 {
     /*
         Daniel Taufiq
-        5/1/2019
-        Dr. Jarvis
+        1/7/2019
 
         Class Description:
             A factory pattern that models a start and stop

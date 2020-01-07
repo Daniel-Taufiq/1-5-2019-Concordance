@@ -3,8 +3,7 @@ public class NavigableOccurenceList
 {
     /*
         Daniel Taufiq
-        5/8/2019
-        Dr. Jarvis
+        1/7/2019
 
         Class Description:
             uses a position in the index to navigate

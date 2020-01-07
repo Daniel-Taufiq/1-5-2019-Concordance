@@ -3,8 +3,7 @@ public class Concordance
 {
     /*
         Daniel Taufiq
-        5/9/2019
-        Dr. Jarvis
+        1/7/2019
 
         Instance Variables:
             private Book book

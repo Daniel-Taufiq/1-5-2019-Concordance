@@ -2,7 +2,8 @@ public interface TokenFilter
 {
     /*
         Daniel Taufiq
-        4/12/2019
+        1/7/2019
+
         Interface Description:
             allows objects to use other classes that implement this interface
         Method:

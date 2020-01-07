@@ -5,8 +5,7 @@ public class HTML
 {
     /*
 		Daniel Taufiq
-		5/14/2019
-		Dr. Jarvis
+		1/7/2019
 
 		Class Description:
 			Displays the results to the web browser
