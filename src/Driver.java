@@ -8,7 +8,9 @@ public class Driver
         Book b;
         File file;
         file = new File("TreasureIsland.txt");
+        //file = new File("The Longest Journey.txt");
         b = new Book(file, "Stevenson", "Pieces of eight! Pieces of eight!");
+        //b = new Book(file, "Forster", "introductory memoir.");
 
         Concordance c;
         c = new Concordance(b);
@@ -17,6 +19,8 @@ public class Driver
         Word wordB;
         wordA = new Word("treasure");
         wordB = new Word("buried");
+        //wordA = new Word("will");
+        //wordB = new Word("about");
 
         c.getContext(wordA, 2, wordB);
 
